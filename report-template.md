@@ -24,14 +24,24 @@
 	 
 	 * Evaluate the predictions - Evaluations are done by calculating and comparing metrics like accuracy score, a confusion matrix, and a classification report.
 	 
-	 * Briefly touch on any methods you used(e.g., LogisticRegression, or any resampling method).
- 
+* **Stages of Machine Learning Process** -
+The primary model used in this analysis is :
+- LogisticRegression model from SKLearn
+
+Supproting funcitons used in this analysis are :
+- train_test_split from SKLearn
+
+Models are evaluated using the following functions:
+
+- confustion_matrix from SKLearn
+- classification_report from SKLearn
+
 
 ## Results
 
 Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
 
-* Machine Learning Model 1 - Logistic Regression:
+* Machine Learning Model - Logistic Regression:
 	*  **Accuracy Score:** 99%
 	*  **Precision Scores:**
 		*  Class 0 (Healthy Loans): 100%
@@ -39,14 +49,6 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 	* **Recall Scores:**
 		*  Class 0 (Healthy Loans): 99%
 		*  Class 1 (High-risk Loans): 94%
-* Machine Learning Model 2 - Logistic Regression Model with Resampled Training Data:
-	* **Accuracy Score:** 99%
-	*  **Precision Scores:**
-		* Class 0 (Healthy Loans): 100%
-		* Class 1 ( High-risk Loans): 84%
-	* **Recall Scores:**
-		*  Class 0 (Healthy Loans): 99%
-		*  Class 1 (High-risk Loans): 99%
 
 ## Summary
 
