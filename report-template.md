@@ -50,8 +50,6 @@ Using bulleted lists, describe the balanced accuracy scores and the precision an
 
 ## Summary
 
-The machine learning models evaluated both performed exceptionally well, achieving 99% accuracy. 
+The model does a great job in using the original data to predicting the values of the healthy loans. Precission was 100 % and recall was 99 %.
 
-The initial logistic regression model performs very well for healthy loans (0), with perfect precision (1.00) and high recall (0.99), meaning it rarely misclassifies them. However, for high-risk loans (1), precision is lower (0.84) and recall is (0.94), meaning some risky loans are still mislabeled as safe. This model is more conservative, focusing on correctly classifying healthy loans while slightly compromising on detecting all high-risk loans.
-
-The logistic regression model trained with oversampled data also maintains 99% accuracy, but it significantly improves recall for high-risk loans (1) to (0.99), meaning it detects nearly all actual high-risk loans. However, precision for high-risk loans remains at (0.84), meaning some healthy loans are still misclassified as high-risk. The oversampling technique ensures that the model is better at catching high-risk loans, reducing false negatives and making it a stronger choice for risk assessment.
+The model is pretty good at predicting the values of high risk loans, but not as good as predicting the healthy loans. Precision was 84 % and recall was 94 %.
