@@ -1,27 +1,57 @@
-# Module 12 Report Template
+# Module 20 Report Template
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
-
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+ * **Purpose of the analysis** - The goal of this analysis is to determine if the Logistic Regression machine learning model can more accurately predict healthy loans versus high-risk loans using the original dataset or a dataset that is resampled to increase the size of the minority class.
+ 
+*  **The Dataset** - The dataset used to perform the analysis consists of information on 77,536 loans. The data includes columns for loan size, interest rate, borrower income, dent to income ratio, number of accounts, derogatory_marks, total_debt and loan_status. The category that we are attempting to predict with our analysis is **loan_status**. The data provided in the remaining columns will be used as features to train the data and inform the predictions.
+	 
+* **Stages of Machine Learning Process** - The stages of machine learning process are very scripted. If followed in order, the provide you with an accurate assessment of the model's ability to make predictions. The stages of the machine learning process are follows:
+	 
+	 * Prepare the data - Import the file, establish the DataFrame, evaluate the columns and features.
+	 
+	 * Separate the data into features and labels - The labels are what you are attempting to predict, is the status of the loan healthy (0) or high-risk (1). The features are all of the remaining data you will use to train and test the model.
+	 
+	 * Use the train_test_split function to separate the features and labels data into training and testing datasets.
+	 
+	 * Import the machine learning model from the library - In this instance, we will be importing LogisticsRegression fro SKLearn.
+	 
+	 * Instantiate the model.
+	 
+	 * Fit the model using the training data.
+	 
+	 * Use the model to make predictions using the features test data.
+	 
+	 * Evaluate the predictions - Evaluations are done by calculating and comparing metrics like accuracy score, a confusion matrix, and a classification report.
+	 
+	 * Briefly touch on any methods you used(e.g., LogisticRegression, or any resampling method).
+ 
 
 ## Results
 
-Using bulleted lists, describe the accuracy scores and the precision and recall scores of all machine learning models.
+Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
 
-* Machine Learning Model 1:
-    * Description of Model 1 Accuracy, Precision, and Recall scores.
+* Machine Learning Model 1 - Logistic Regression:
+	*  **Accuracy Score:** 99%
+	*  **Precision Scores:**
+		*  Class 0 (Healthy Loans): 100%
+		* Class 1 ( High-risk Loans): 84%
+	* **Recall Scores:**
+		*  Class 0 (Healthy Loans): 99%
+		*  Class 1 (High-risk Loans): 94%
+* Machine Learning Model 2 - Logistic Regression Model with Resampled Training Data:
+	* **Accuracy Score:** 99%
+	*  **Precision Scores:**
+		* Class 0 (Healthy Loans): 100%
+		* Class 1 ( High-risk Loans): 84%
+	* **Recall Scores:**
+		*  Class 0 (Healthy Loans): 99%
+		*  Class 1 (High-risk Loans): 99%
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
+The machine learning models evaluated both performed exceptionally well, achieving 99% accuracy. 
 
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
+The initial logistic regression model performs very well for healthy loans (0), with perfect precision (1.00) and high recall (0.99), meaning it rarely misclassifies them. However, for high-risk loans (1), precision is lower (0.84) and recall is (0.94), meaning some risky loans are still mislabeled as safe. This model is more conservative, focusing on correctly classifying healthy loans while slightly compromising on detecting all high-risk loans.
 
-If you do not recommend any of the models, please justify your reasoning.
+The logistic regression model trained with oversampled data also maintains 99% accuracy, but it significantly improves recall for high-risk loans (1) to (0.99), meaning it detects nearly all actual high-risk loans. However, precision for high-risk loans remains at (0.84), meaning some healthy loans are still misclassified as high-risk. The oversampling technique ensures that the model is better at catching high-risk loans, reducing false negatives and making it a stronger choice for risk assessment.
